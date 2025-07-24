@@ -12,7 +12,6 @@ dependencies:
   - conda=23.7.2
   - conda-content-trust=0.1.1
   - conda-package-handling=1.8.1
-  - console_shortcut=0.1.1
   - cryptography=37.0.1
   - idna=3.7
   - jupyter
