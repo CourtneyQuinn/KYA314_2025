@@ -70,3 +70,35 @@ def DuffingMap(x,p):
     xout[1,:] = -beta*x[0,:]+alpha*x[1,:]-x[1,:]**3
     
     return xout
+
+def VanderPol(t,x,p):
+    '''2D ODE system exhibiting relaxation oscillations
+    Input
+    ----------
+    t : float
+        time value
+    x : array (2, N)
+        state space values
+    p : array (4,)
+        parameter values
+    Returns
+    -------
+    xout : array, shape (2, N)
+           Array containing derivative at x
+           2nd dimension denotes derivatives for different points
+    '''
+
+    if x.ndim == 1:
+        x = np.expand_dims(x, axis=1)
+    
+    n = x.shape
+    xout = np.empty(n)
+    xout[:] = np.nan 
+    
+    alpha = p
+    
+    xout[0,:] = x[1,:];
+    xout[1,:] = alpha*(1-x[0,:]**2)*x[1,:]-x[0,:];
+    
+    
+    return xout
